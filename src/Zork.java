@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Zork {
 	static Scanner sc = new Scanner(System.in);
-	static boolean isSecretFound = false;
+	static boolean isSecretFound = false,visited=false;
 	static int numbersOfRoomsVisited = 0;
 
 	public static void Foyer() {
@@ -88,7 +88,12 @@ public class Zork {
 
 	public static void SecretRoom() {
 		numbersOfRoomsVisited++;
-		System.out.println("You are in Secret Room, You see Piles of Gold. Collect as much as you can and when you are ready..\n You can choose :\n (1) To go back to the vault in the West");
+		if(!visited){
+			System.out.println("You are in Secret Room, You see Piles of Gold. Collect as much as you can and when you are ready..\n You can choose :\n (1) To go back to the vault in the West");
+			visited = true;
+		}
+		else
+			System.out.println("Well..you took everything you can. now what are you doing here? \n(1) To go back to the vault in the West");
 		sc.nextLine();
 		Vault();
 	}
